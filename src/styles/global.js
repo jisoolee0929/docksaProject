@@ -49,30 +49,8 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  // 채널톡 초기 플로팅 버튼
-  /* #ch-plugin-launcher {
-    img {
-      width: 18rem !important;
-      height: auto !important;
-      ${device.ipad129Half} {
-        width: 16rem !important;
-        height: auto !important;
-      }
-    }
-  } */
 
-  // 채널톡 버튼 클릭시 뜨는 창
-  #ch-plugin-script {
-    height: 50% !important;
-    ${device.ipad129Half} {
-      width: 70% !important;
-    }
-    ${device.ipadAirQuarter} {
-      width: 100% !important;
-      height: 100% !important;
-    }
-    z-index: 1 !important;
-  }
+
 `;
 
 export default GlobalStyle;

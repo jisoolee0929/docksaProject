@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import { Home, LogIn, SignIn } from "./pages";
+import { PublicRoute } from "./utilis";
 
-
-function Router(){
-    return(
-        <Routes>
-            <Route path="/" element={<Home />} />
-        </Routes>
-    )
-
+function Router() {
+  return (
+    <Routes>
+      <Route path="/"  element={<LogIn/>} exact />
+      <Route path="/signin" element={<SignIn/>} exact />
+      <PublicRoute path="/home" component={Home} exact />
+    </Routes>
+  );
 }
 
-export default Router
-
+export default Router;
