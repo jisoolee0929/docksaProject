@@ -20,6 +20,23 @@ export const Contents = styled.div`
   background-color: #eda139;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  height: 10%;
+  `
+
+export const HeaderTime = styled.div``
+
+export const HeaderLocation = styled.div``;
+
+export const HeaderMenu = styled.div``;
+
+export const ChatContainer = styled.div``;
+
+
 export const Title = styled.div`
   margin-top: 10%;
   font-size: 5rem;
