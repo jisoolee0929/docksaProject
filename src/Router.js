@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, LogIn, SignIn, KakaoLogin, Main } from "./pages";
+import { Home, LogIn, SignIn, KakaoLogin, Main, MyPage} from "./pages";
 import { PublicRoute } from "./utilis";
 
 function Router() {
@@ -11,6 +11,7 @@ function Router() {
         <Home/>
       </PublicRoute>}/>
       <Route path="/main"  element={<Main/>} exact />
+      <Route path="/mypage"  element={<MyPage/>} exact />
     </Routes>
   );
 }
