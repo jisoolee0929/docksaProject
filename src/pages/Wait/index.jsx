@@ -2,6 +2,13 @@ import {useState} from 'react';
 import * as S from './style';
 import logo from "../../assets/image/logo.png";
 import { useNavigate } from 'react-router-dom';
+import { registration } from 'apis/user';
+
+
+const handleRegi = async () => {
+    const result = await registration("111", "jisoo)92", "11111", "11111");
+    console.log(result);
+}
 
 const Wait = () => {
     const navigate = useNavigate();
@@ -14,6 +21,7 @@ const Wait = () => {
                 <S.ButtonWrapper>
                     <S.Button onClick = {()=> {navigate("/login")}}>로그인</S.Button>
                     <S.Button onClick = {()=> {navigate("/signin")}}>회원가입</S.Button>
+                    <S.Button onClick = {handleRegi}>회원가입</S.Button>
                 </S.ButtonWrapper>
             </S.Contents>
 
