@@ -86,7 +86,7 @@ export const RoomBox = styled.div`
 `;
 
 export const ImageButton = styled.img`
-    display: relative;
+    display: flex;
     padding: 0 0 5% 70%;
     background-color: rgba(237, 161, 57, 0);
     border: none;

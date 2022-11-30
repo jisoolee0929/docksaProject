@@ -8,9 +8,6 @@ import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 
 const Main = () => {
     const navigate = useNavigate();
-    const createRoom = () => {
-      navigate('/write');
-    };
 
     const goRoom = (id) => {
       // navigate('/post');
@@ -34,18 +31,8 @@ const Main = () => {
                     </S.RoomBox>
                 ))
                 }
-                {/* <S.RoomBox onClick={() => navigate("")}>
-                    <img src={require("./")} onClick={() => navigate("")}></img>
-                    <div>만날 시간</div>
-                    <div>만날 장소</div>
-                </S.RoomBox>
-                <S.RoomBox onClick={() => navigate("")}>
-                    <img src={require("./")} onClick={() => navigate("")}></img>
-                    <div>만날 시간</div>
-                    <div>만날 장소</div>
-                </S.RoomBox> */}
             </S.RoomGroup>
-            <S.ImageButton src={require("../../assets/img/logo.png")} onClick={createRoom}></S.ImageButton>
+            <S.ImageButton src={require("../../assets/img/logo.png")} onClick={() => navigate("/create")}></S.ImageButton>
         </S.ContentsBody>
         <S.NavBar>
                 <S.NavBarButton onClick={() => navigate("/main")} >
