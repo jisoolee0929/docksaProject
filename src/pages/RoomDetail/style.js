@@ -1,5 +1,38 @@
 import styled from "styled-components";
 
+export const Page = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    overflow: hidden;
+`;
+
+export const Contents = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    background-color: #EDA139;
+    padding-top: 4.5vh;
+`;
+
+export const ContentsBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items:left;
+    justify-items: center;
+    width: 100%;
+    height: 85vh;
+    background-color:white;
+    margin-top: 2.5vh;
+`;
+
 
 export const Container = styled.div`
   display: flex;
@@ -11,14 +44,28 @@ export const Container = styled.div`
   font-family: "Mingijuk";
 `;
 
-export const Contents = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  height: 100%;
-  background-color: #eda139;
+export const NavBar = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 8vh;
+    background-color: #EDA139;
+    cursor: pointer;
 `;
+
+export const NavBarButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 8vh;
+    cursor: pointer;
+`;
+
+
+
+
 
 export const Header = styled.div`
   display: flex;
