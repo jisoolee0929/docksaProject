@@ -12,7 +12,8 @@ export const ChatContents = styled.div`
 
 export const Chatbubble = styled.div`
 position: absolute;
-  width: 25rem;
+  width: 35rem;
+  right: 0rem;
   img{
     width: 100%;
     height: 100%;
@@ -23,8 +24,8 @@ position: absolute;
 export const ChatImg = styled.div`
 position: absolute;
   width: 15rem;
-  top:3rem;
-  left: 6rem;
+  top:0rem;
+  right: 7rem;
   img{
     width: 100%;
     height: 100%;

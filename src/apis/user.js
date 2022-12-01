@@ -2,30 +2,30 @@ import axios from 'axios';
 import {BASE} from "config/BASE";
 
 
-export const registration = async ({username,email,password1,password2}) => {
+export const registration = async ({username,email,password1}) => {
     const data = await axios({
         method: "post",
         url: BASE + "/registration/",
         data: {
-            username: "test1",
-            email:"jisoolee@gmail.com",
-            password1:"12341234!",
-            password2:"12341234!",
+            username: username,
+            email:email,
+            password1:password1,
+            password2:password1,
         }
     });
     return data;
 }
 
-
-
-export const getRoom =async (rooNum, token, data1) => {
+export const login = async ({username,email, password}) => {
     const data = await axios({
         method: "post",
-        url: BASE + rooNum,
-        headers: {
-            Authorization: `Berar ${token}`
-        },
-        data: data1
+        url: BASE + "/login/",
+        data: {
+            username: username,
+            email:email,
+            password:password,
+        }
     });
     return data;
 }
+
