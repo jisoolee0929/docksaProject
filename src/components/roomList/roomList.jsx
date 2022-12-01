@@ -13,6 +13,10 @@ function RoomList() {
     navigate(`${'/room/' + id}`);
   };
 
+  const getRoomList = async () => {
+    const response = await axios();
+  };
+
   const [dummyRoomList, setDummyRoomList] = useState([
     {id: 1, when: '11:30 am', where: '정후'},
     {id: 2, when: '13:00 pm', where: '애기능'},
@@ -27,9 +31,11 @@ function RoomList() {
         setRooms(null);
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
-        const response = await axios.get(
-          // 'https://http://ec2-18-181-255-9.ap-northeast-1.compute.amazonaws.com:8000/'
-        );
+        
+        const response = getRoomList();
+        // const response = await axios.get(
+        //   'https://ec2-18-181-255-9.ap-northeast-1.compute.amazonaws.com:8000/8/'
+        // );
         setRooms(response.data); // 데이터는 response.data 안에 들어있다.
       } catch (e) {
         setError(e);
