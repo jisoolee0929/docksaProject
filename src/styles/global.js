@@ -1,12 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { device, colors } from "styles/theme";
-
+import { device, colors } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: 'Mingijuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Mingijuk.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
   html {
-    background-color: ${colors.darkGray};
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    background-color: #f5f5f5;
+    font-family: 'Mingijuk';
     font-size: 10px;
     ${device.ipad129Half} {
       font-size: 8.5px;
@@ -31,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: scroll;
     /* overflow-y: hidden; */
     -webkit-overflow-scrolling: touch;
-    background-color: ${colors.darkGray};
+    background-color: #f5f5f5;
     &::-webkit-scrollbar {
     display: none;
   }
@@ -42,12 +46,7 @@ const GlobalStyle = createGlobalStyle`
    pointer-events: none;
   }
 
-  // 채널톡 모달 클릭시 아래 깔리도록 처리
-  #ch-plugin-core {
-    div{
-      z-index: 1 !important;
-    }
-  }
+
 
 
 
