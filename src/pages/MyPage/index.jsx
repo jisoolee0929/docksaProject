@@ -26,7 +26,6 @@ const MyPage = () => {
   useEffect(() => {
     getMyPage().then((res) => {
       console.log(res);
-
       setUserInfo(res.data);
     });
   },[]);

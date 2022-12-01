@@ -21,60 +21,74 @@ export const Img_list = [
     {
         id: 1,
         img: giyuk,
-        name: "ㄱ"
+        name: "ㄱ",
+        pk:18
     },
     {
         id: 2,
         img: letter2,
-        name: "ㄴ"
+        name: "ㄴ",
+        pk:19
     },
     {
         id: 3,
         img: letter3,
-        name: "ㄷ"
+        name: "ㄷ",
+        pk:20
     },{
         id: 4,
         img: letter4,
-        name: "ㄹ"
+        name: "ㄹ",
+        pk:21
     },{
         id: 5,
         img: letter5,
-        name: "ㅁ"
+        name: "ㅁ",
+        pk:22
     },{
         id: 6,
         img: letter6,
-        name: "ㅂ"
+        name: "ㅂ",
+        pk:23
     },{
         id: 7,
         img: letter7,
-        name: "ㅅ"
+        name: "ㅅ",
+        pk:24
     },{
         id: 8,
         img: letter8,
-        name: "ㅇ"
+        name: "ㅇ",
+        pk:25
     },{
         id: 9,
         img: letter9,
-        name: "ㅈ"
+        name: "ㅈ",
+        pk:26
     },{
         id: 10,
         img: letter10,
-        name: "ㅊ"
+        name: "ㅊ",
+        pk:27
     },{
         id: 11,
         img: letter11,
-        name: "ㅋ"
+        name: "ㅋ",
+        pk:28
     },{
         id: 12,
         img: letter12,
-        name: "ㅌ"
+        name: "ㅌ",
+        pk:29
     },{
         id: 13,
         img: letter13,
-        name: "ㅍ"
+        name: "ㅍ",
+        pk:30
     },{
         id: 14,
         img: letter14,
-        name: "ㅎ"
+        name: "ㅎ",
+        pk:31
     }
 ]

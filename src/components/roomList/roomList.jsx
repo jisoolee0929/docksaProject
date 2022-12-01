@@ -1,7 +1,8 @@
-import React , {useState, useEffect} from 'react';
-import axios from 'axios'
-import * as S from "../../pages/Main/style.js"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import * as S from "../../pages/Main/style.js";
 import { useNavigate } from "react-router-dom";
+import { getRoomListAPI } from "apis/room";
 
 function RoomList() {
   const [rooms, setRooms] = useState(null);
@@ -10,18 +11,23 @@ function RoomList() {
 
   const navigate = useNavigate();
   const goRoom = (id) => {
-    navigate(`${'/room/' + id}`);
+    navigate(`${"/room/" + id}`);
   };
 
   const getRoomList = async () => {
-    const response = await axios();
+    const response = await getRoomListAPI();
+    const time  = new Date (response.data.time);
+    const hour = time.getHours();
+    const minute = time.getMinutes();
+    const timeString = hour + "시 " + minute + "분";
+    response.data.time = timeString;
+    setRooms(response.data);
   };
 
   const [dummyRoomList, setDummyRoomList] = useState([
-    {id: 1, when: '11:30 am', where: '정후'},
-    {id: 2, when: '13:00 pm', where: '애기능'},
+    { id: 1, when: "11:30 am", where: "정후" },
+    { id: 2, when: "13:00 pm", where: "애기능" },
   ]);
-
 
   useEffect(() => {
     const fetchRooms = async () => {
@@ -31,7 +37,7 @@ function RoomList() {
         setRooms(null);
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
-        
+
         const response = getRoomList();
         // const response = await axios.get(
         //   'https://ec2-18-181-255-9.ap-northeast-1.compute.amazonaws.com:8000/8/'
@@ -47,32 +53,25 @@ function RoomList() {
   }, []);
 
   if (loading) return <div>로딩중..</div>;
-  if (error) 
-  return <div><S.RoomGroup>{dummyRoomList.map((room) => (
-              <S.RoomBox onClick={() => goRoom(room.id)}>
-                  <div>{room.when}</div>
-                  <div>{room.where}</div>
-              </S.RoomBox>
-            ))
-        }</S.RoomGroup></div>;
-  if (!rooms) return <div>생성된 방이 없어요</div>;
-  return (
-    <S.RoomBox>
-      {rooms.map(room => (
-        <li onClick={() => goRoom(room.id)}>
-          <div>{room.when}</div>
-          <div>{room.where}</div>
-        </li>
-      ))}
-    </S.RoomBox>
 
-    // <ul>
-    //   {rooms.map(room => (
-    //     <li key={room.id}>
-    //       {room.where} ({room.when})
-    //     </li>
-    //   ))}
-    // </ul>
+  if(rooms) return (
+    <div>
+      <S.RoomGroup>
+        {rooms.map((room) => (
+          <S.RoomBox onClick={() => goRoom(room.id)}>
+            <div>{room?.time}</div>
+            <div stlye={{ display: "flex", flexDirection: "row" }}>
+              <S.RoomImage>
+                <img src={room.foodImage.image} alt="푸드"></img>
+              </S.RoomImage>
+              <S.RoomImage>
+                <img src={room.place.image} alt="장소"></img>
+              </S.RoomImage>
+            </div>
+          </S.RoomBox>
+        ))}
+      </S.RoomGroup>
+    </div>
   );
 }
 

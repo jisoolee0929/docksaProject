@@ -14,6 +14,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import twelve from "assets/image/먹을시간_12시.png";
 import chamsal from "assets/image/먹을장소_참살.png";
 import italian from "assets/image/italian.png";
+import { getMyPage } from "apis/user";
 
 
 const RoomDetail = ({ id }) => {
@@ -24,12 +25,16 @@ const RoomDetail = ({ id }) => {
   const [isLetterOpen, setIsLetterOpen] = useState(false);
   const [isbarOpen, setIsbarOpen] = useState(false);
   const [chatNum, setChatNum] = useState(0);
+  const [userInfo, setUserInfo] = useState()
+  const [roomInfo, setRoomInfo] = useState()
   console.log("params", params);
+  console.log(roomInfo);
 
   const getRoomData = async () => {
 
     const response = await getRoomDetail(params.id);
     console.log(response);
+    setRoomInfo(response.data);
 
     setChats(response.data.comment);
     setChatNum(response.data.comment.length);
@@ -37,7 +42,12 @@ const RoomDetail = ({ id }) => {
 
   useEffect(() => {
     getRoomData();
+    getMyPage().then((res) => {
+      console.log(res);
+      setUserInfo(res.data);
+    });
   }, []);
+    console.log("roominfo", roomInfo);
 
   const handleOpen = () => {
     setIsImageOpen(!isImageOpen);
@@ -50,15 +60,22 @@ const RoomDetail = ({ id }) => {
 
   const handleImgPost = async (e) => {
     const id = e.target.id;
-    const name = e.target.name;
     const newChat = {
+      // id: id,
+      user: userInfo?.username,
+      room: roomInfo.room.id,
+      commentImage: Img_list[id - 1].pk
+    };
+    const newChat2 = {
       id: id,
-      name: name,
+      user: userInfo?.username,
+      room: roomInfo.room.id,
       image: {
-        image: Snake_list[id - 1].img,
+        id:id,
+        image: Img_list[id - 1].img,
       },
     };
-    setChats([...chats, newChat]);
+    setChats([...chats, newChat2]);
     setChatNum(chatNum + 1);
     try {
       const response = await postComment(params.id, chatNum + 1, newChat);
@@ -69,15 +86,22 @@ const RoomDetail = ({ id }) => {
   };
   const handleLetterPost = async (e) => {
     const id = e.target.id;
-    const name = e.target.name;
     const newChat = {
+      // id: id,
+      user: userInfo?.username,
+      room: roomInfo.room.id,
+      commentImage: Img_list[id - 1].pk
+    };
+    const newChat2 = {
       id: id,
-      name: name,
+      user: userInfo?.username,
+      room: roomInfo.room.id,
       image: {
+        id:id,
         image: Img_list[id - 1].img,
       },
     };
-    setChats([...chats, newChat]);
+    setChats([...chats, newChat2]);
     setChatNum(chatNum + 1);
     try {
       const response = await postComment(params.id, chatNum + 1, newChat);
@@ -86,6 +110,7 @@ const RoomDetail = ({ id }) => {
       console.log(e);
     }
   };
+  console.log(roomInfo?.room?.foodImgae?.image)
 
   return (
     <S.Page>
@@ -102,10 +127,10 @@ const RoomDetail = ({ id }) => {
             <img src = {twelve} alt ="시간" ></img>
           </S.HeaderTime>
           <S.HeaderLocation>
-            <img src = {chamsal} alt ="장소" ></img>
+            <img src = {roomInfo?.room?.place?.image } alt ="장소" ></img>
           </S.HeaderLocation>
           <S.HeaderMenu>
-            <img src = {italian} alt ="메뉴" ></img>
+            <img src = {roomInfo?.room?.foodImage?.image } alt ="메뉴" ></img>
           </S.HeaderMenu>
         </S.Header>
         <S.ContentsBody onClick={handlebarOpen}>

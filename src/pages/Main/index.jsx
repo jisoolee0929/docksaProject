@@ -1,13 +1,23 @@
-import React, {Link, useState} from "react"
+import React, {Link, useState, useEffect} from "react"
 import * as S from "./style"
 import { useNavigate } from "react-router-dom";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import MmsRoundedIcon from '@mui/icons-material/MmsRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import RoomList from "../../components/roomList/roomList";
+import { getRoomListAPI } from "apis/room";
 
 const Main = () => {
+    const [roomList, setRoomList] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getRoomListAPI().then((res) => {
+            console.log(res);
+            setRoomList(res.data);
+        });
+
+    },[])
 
     // const goRoom = (id) => {
     //   // navigate('/post');
