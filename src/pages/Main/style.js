@@ -31,6 +31,8 @@ export const ContentsBody = styled.div`
     height: 85vh;
     background-color:#f5f5f5;
     margin-top: 2.5vh;
+    margin-bottom: 0;
+    padding: 0;
 `;
 
 
@@ -58,7 +60,7 @@ export const RoomGroup = styled.ul`
     align-items: top;
     justify-content: space-around;
     width: 100%;
-    height: 100%;
+    height: 80%;
     margin: 0;
     padding: 20px 0 0 0;
 `;
@@ -79,17 +81,21 @@ export const RoomBox = styled.div`
 
 export const ImageButtonWrapper = styled.div`
     display: flex;
-    padding: 0 0 5% 70%;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
     background-color: rgba(237, 161, 57, 0);
     border: none;
-    height: 1rem; 
     width: 100%;
+    padding: 0;
+    margin: 0;
 `;
 
 export const ImageButton = styled.div`
     display: flex;
+    align-items: start;
+    justify-content: center;
     padding: 0;
-    width: 100px;
     background-color: rgba(237, 161, 57, 0);
     border: none;
     cursor: pointer;
