@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import signinImage from "../../assets/image/signinImg.png";
+import { registration } from "apis/user";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [userAccount, setUserAccount] = useState({
-    nickName: "",
-    id: "",
-    password: "",
+    usermame: "",
+    email: "",
+    password1: "",
   });
-  const handleSignIn = (e) => {
-    e.preventdefault();
+  const navigate = useNavigate();
+
+  const handleSignIn = async(e) => {
+    // e.preventdefault();
+    try{
+      const response = await registration(userAccount);
+      console.log(response);
+      localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("refresh_token", response.data.refresh_token);
+      navigate("/main");
+    }catch(e){
+      console.log(e);
+    }
   };
 
   return (
@@ -26,7 +39,7 @@ const SignIn = () => {
             <S.Input
               placeholder="닉네임"
               onChange={(e) => {
-                setUserAccount({ ...userAccount, nickName: e.target.value });
+                setUserAccount({ ...userAccount, username: e.target.value });
               }}
             />
           </S.InputWarpper>
@@ -34,9 +47,9 @@ const SignIn = () => {
           <S.InputWarpper>
             <S.InputText>고독한 아이디:</S.InputText>
             <S.Input
-              placeholder="아이디"
+              placeholder="이메일"
               onChange={(e) => {
-                setUserAccount({ ...userAccount, id: e.target.value });
+                setUserAccount({ ...userAccount, email: e.target.value });
               }}
             />
           </S.InputWarpper>
@@ -45,7 +58,7 @@ const SignIn = () => {
             <S.Input
               placeholder="비밀번호"
               onChange={(e) => {
-                setUserAccount({ ...userAccount, password: e.target.value });
+                setUserAccount({ ...userAccount, password1: e.target.value });
               }}
             />
           </S.InputWarpper>
