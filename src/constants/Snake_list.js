@@ -9,15 +9,18 @@ export const Snake_list = [
     {
         id: 1,
         img:login,
-        name: "login"
+        name: "login",
+        pk:5
     },{
         id: 2,
         img:signin,
-        name: "signin"
+        name: "signin",
+        pk:6
     },{
         id: 3,
         img:rice,
-        name: "rice"
+        name: "rice",
+        pk:7
     }
 
 ]

@@ -31,7 +31,7 @@ export const ContentsBody = styled.div`
     height: 85vh;
     background-color:#f5f5f5;
     margin-top: 2.5vh;
-    overflow; scroll;
+    overflow: scroll;
 `;
 
 export const NavBar = styled.div`

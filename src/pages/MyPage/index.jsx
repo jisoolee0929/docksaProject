@@ -6,11 +6,14 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import MmsRoundedIcon from '@mui/icons-material/MmsRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import ProgressBar from "../../components/progressBar/progressBar";
+import { getMyPage } from "apis/user";
 
 const MyPage = () => {
     const navigate = useNavigate();
     // const [myroom, setMyroom] = useState(0);
     // const [value, setValue] = useState(100);
+    const [userInfo, setUserInfo] = useState()
+    
     
     const [godokValue, setGodokValue] = useState(80);
     //약속 개수 카운트해서 godokValue에 반영.
@@ -20,12 +23,23 @@ const MyPage = () => {
       //   ...godokValue, value
       // })
   };
+  useEffect(() => {
+    getMyPage().then((res) => {
+      console.log(res);
+      setUserInfo(res.data);
+    });
+  },[]);
     
     return (
     <S.Page>
     <S.Contents>
         <S.ContentsBody>
             <img src={require("../../assets/img/nyam.png")} style={{height: "200px"}}></img>
+            <S.Title2>기본 정보</S.Title2>
+            <div style = {{display:"flex", flexDirection:"column", fontSize:"2rem"}}>
+                <div>이메일 : {userInfo?.email}</div>
+                <div>닉네임 : {userInfo?.username}</div>
+            </div>
             <S.Title2>고독지수</S.Title2>
             {/* <input
               type="range"
@@ -38,13 +52,15 @@ const MyPage = () => {
             </S.SliderOut> */}
 
             {/* <progress value="20" max="100"></progress> */}
+            
 
             <ProgressBar bgcolor="#EDA139" completed={godokValue}></ProgressBar>
 
-            <S.Title2>안 고독한 식사 목록</S.Title2>
-            <S.RoomGroup>
+            
+            
+            {/* <S.RoomGroup>
 
-            </S.RoomGroup>
+            </S.RoomGroup> */}
         </S.ContentsBody>
         <S.NavBar>
                 <S.NavBarButton onClick={() => navigate("/main")} >

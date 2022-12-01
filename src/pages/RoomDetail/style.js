@@ -70,13 +70,41 @@ export const Header = styled.div`
   position: fixed;
   top: 0;
   height: 10%;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
 `;
 
-export const HeaderTime = styled.div``;
+export const HeaderButton = styled.div`
+  margin-bottom: 3rem;
+  margin-left: 1rem;
+`;
 
-export const HeaderLocation = styled.div``;
+export const HeaderTime = styled.div`
+  width: 5rem;
+  margin-bottom: 3rem;
+  img {
+    width: 100%;
+  }
+`;
 
-export const HeaderMenu = styled.div``;
+export const HeaderLocation = styled.div`
+  width: 5rem;
+  margin-bottom: 3rem;
+
+  img {
+    width: 100%;
+  }
+`;
+
+export const HeaderMenu = styled.div`
+  width: 5rem;
+  margin-bottom: 3rem;
+  margin-right: 1rem;
+  img {
+    width: 100%;
+  }
+`;
 
 export const ChatContainer = styled.div``;
 
