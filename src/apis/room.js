@@ -8,7 +8,7 @@ const token = localStorage.getItem("token");
 
 export const getRoomList = async () => {
   const data = axios({
-    method: "GET",
+    method: "get",
     url: BASE,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ export const postRoom = async (roomdata) => {
 export const getRoomDetail = async (id) => {
   const data = axios({
     method: "get",
-    url: BASE  + 8 + "/",
+    url: BASE  + id + "/",
     headers: {
       Authorization: `Bearer ${token}`,
     }

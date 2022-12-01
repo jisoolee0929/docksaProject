@@ -1,15 +1,20 @@
 import { BASE } from "config/BASE";
-import { axios } from "axios";
+import axios  from "axios";
 
+const token = localStorage.getItem("token");
 
-export const postComment = async ({roomid, commentdata}) => {
+export const postComment = async (roomid,commentid ,commentdata) => {
     const data = axios({
-        method: "POST",
-        url: BASE + roomid,
+        method: "post",
+        url: BASE  + roomid + "/" + commentid  + "/",
+        header : {
+            Authorization: `Bearer ${token}`,
+        },
         data: commentdata,
     });
     return data;
 }
+
 
 export const deleteComment = async ({roomid, commentid}) => {
     const data = axios({
