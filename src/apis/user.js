@@ -29,3 +29,15 @@ export const login = async ({username,email, password}) => {
     return data;
 }
 
+export const getMyPage = async () => {
+    const token = localStorage.getItem("token");
+    const data = await axios({
+        method: "get",
+        url: BASE + "/mypage/",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    });
+    return data;
+}
+
