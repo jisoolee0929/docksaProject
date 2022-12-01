@@ -6,6 +6,7 @@ import MmsRoundedIcon from '@mui/icons-material/MmsRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import RoomList from "../../components/roomList/roomList";
 
+
 const Main = () => {
     const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ const Main = () => {
 
     // const [roomList, setRoomList] = useState([
     //   {id: 1, when: '11:30 am', where: '정후'},
-    //   {id: 2, when: '13:00 pm', where: '애기능'},
+    //   {id: 2, when: '13:00 pm',1 where: '애기능'},
     // ]);
     
     return (

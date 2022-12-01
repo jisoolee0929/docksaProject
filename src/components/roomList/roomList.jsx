@@ -2,6 +2,7 @@ import React , {useState, useEffect} from 'react';
 import axios from 'axios'
 import * as S from "../../pages/Main/style.js"
 import { useNavigate } from "react-router-dom";
+import { getRoomList } from "apis/room";
 
 function RoomList() {
   const [rooms, setRooms] = useState(null);
@@ -17,9 +18,10 @@ function RoomList() {
     const response = await axios();
   };
 
+
   const [dummyRoomList, setDummyRoomList] = useState([
-    {id: 1, when: '11:30 am', where: '정후'},
-    {id: 2, when: '13:00 pm', where: '애기능'},
+    {id: 1, time: '11:30 am', place: '정후'},
+    {id: 2, time: '13:00 pm', place: '애기능'},
   ]);
 
 
@@ -29,14 +31,13 @@ function RoomList() {
         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
         setError(null);
         setRooms(null);
-        // loading 상태를 true 로 바꿉니다.
+        // loading 상태를 true 로 바꾼다.
         setLoading(true);
         
-        const response = getRoomList();
         // const response = await axios.get(
         //   'https://ec2-18-181-255-9.ap-northeast-1.compute.amazonaws.com:8000/8/'
         // );
-        setRooms(response.data); // 데이터는 response.data 안에 들어있다.
+        setRooms(getRoomList().data); // 데이터는 response.data 안에 들어있다.
       } catch (e) {
         setError(e);
       }
@@ -50,8 +51,8 @@ function RoomList() {
   if (error) 
   return <div><S.RoomGroup>{dummyRoomList.map((room) => (
               <S.RoomBox onClick={() => goRoom(room.id)}>
-                  <div>{room.when}</div>
-                  <div>{room.where}</div>
+                  <div>{room.time}</div>
+                  <div>{room.place}</div>
               </S.RoomBox>
             ))
         }</S.RoomGroup></div>;
@@ -60,8 +61,8 @@ function RoomList() {
     <S.RoomBox>
       {rooms.map(room => (
         <li onClick={() => goRoom(room.id)}>
-          <div>{room.when}</div>
-          <div>{room.where}</div>
+          <div>{room.time}</div>
+          <div>{room.place}</div>
         </li>
       ))}
     </S.RoomBox>
