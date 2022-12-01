@@ -32,16 +32,7 @@ export const ContentsBody = styled.div`
     background-color:#f5f5f5;
     margin-top: 2.5vh;
 `;
-// export const ContentsBody = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: space-between;
-//     width: 88%;
-//     height: 88vh;
-//     background-color:#f5f5f5;
-//     border-radius: 23px;
-// `;
+
 
 export const NavBar = styled.div`
     display: flex;
@@ -77,19 +68,29 @@ export const RoomBox = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 16vh;
-    height: 16vh;
+    width: 18vh;
+    height: 18vh;
     background-color:#f5f5f5;
     border: solid black 3.5px;
     border-radius: 20px;
     cursor: pointer;
+    margin: 0 15px;
 `;
 
-export const ImageButton = styled.img`
+export const ImageButtonWrapper = styled.div`
     display: flex;
     padding: 0 0 5% 70%;
     background-color: rgba(237, 161, 57, 0);
     border: none;
-    height: 90px; 
+    height: 1rem; 
+    width: 100%;
+`;
+
+export const ImageButton = styled.div`
+    display: flex;
+    padding: 0;
+    width: 100px;
+    background-color: rgba(237, 161, 57, 0);
+    border: none;
     cursor: pointer;
 `;

@@ -10,6 +10,7 @@ const CreateRoom = () => {
     const navigate = useNavigate();
 
     const[selection, setSelection] = useState([]);
+    
     const handleSelect = (e) =>{
         const {value} = e.target;
         setSelection({
