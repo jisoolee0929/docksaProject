@@ -35,7 +35,7 @@ const Main = () => {
             </S.RoomGroup>
             <S.ImageButtonWrapper>
                 <S.ImageButton onClick={() => navigate("/create")}>
-                    <img src={require("../../assets/img/logo.png")} />
+                    <img src={require("../../assets/img/logo.png")} style ={{height: "100px", paddingBottom: "10%"}}/>
                 </S.ImageButton>
             </S.ImageButtonWrapper> 
         </S.ContentsBody>
